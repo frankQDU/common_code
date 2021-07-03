@@ -9,8 +9,7 @@
 ## 特征工程
 - gensim word2vec 特征
 - tfidf特征
-- 统计特征 
-- ctr特征
+- 统计特征(including ctr)
 - target encoding特征
 - 其他模型特征
   
