@@ -63,3 +63,37 @@ def timmer(func):
         return result
     return wrapper
 
+
+def check_consistence(X_train,X_test,feature_col):
+    from sklearn.model_selection import train_test_split
+    from sklearn.metrics import roc_auc_score
+    from sklearn.utils import shuffle
+    import xgboost as xgb
+    xgb_para = {"nthread":-1,
+                "learning_rate":0.01,
+                'objective': 'binary:logistic',
+                'eval_metric':'auc',
+                "max_depth":2,
+                "subsample":0.6,
+                "colsample_bytree":0.6,
+                "lambda":10,
+                "alpha":0.05}
+    
+    X_train['label'] = 0
+    X_test['label'] = 1
+    df = X_train.append(X_test).reset_index(drop = True)
+    df = shuffle(df, random_state=2020)
+    
+    X_train, X_test, y_train, y_test = train_test_split(
+             df[feature_col], df['label'], test_size=0.33, random_state=42)
+    
+    train_set = xgb.DMatrix(X_train,y_train)
+    test_set = xgb.DMatrix(X_test,y_test)
+    xgb_model = xgb.train(xgb_para,
+                          train_set,
+                          evals=[(train_set,'train'),
+                                 (test_set, 'test')],
+#                           early_stopping_rounds=0, 
+                          num_boost_round=100,
+                          verbose_eval=50)
+    return roc_auc_score(y_test, xgb_model.predict( xgb.DMatrix(X_test[feature_col])))
