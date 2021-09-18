@@ -8,11 +8,13 @@
 - 可以根据简单的表来反应问题，
 ## 特征工程
 - gensim word2vec 特征
+- fasttext glove 特征
 - tfidf特征
 - 统计特征(including ctr)
 - target encoding特征
 - 其他模型特征
-  
+- 特征工程的思路，还是要看各种思路，比如微信大数据挑战赛，通过对开源代码的阅读，就是dien的思路，另外代码功底还是不行
+
 ## 特征选择
 - 单变量选择
   - iv
