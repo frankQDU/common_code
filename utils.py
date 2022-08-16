@@ -12,6 +12,15 @@ import xgboost as xgb
 from gensim.models import Word2Vec
 
 
+import datetime
+
+
+def printlog():
+    nowtime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    print("\n"+"=========="*8 + "%s"%nowtime)
+
+    
+
 def reduce_mem(df):
     start_mem = df.memory_usage().sum() / 1024 ** 2
     for col in df.columns:
