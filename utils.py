@@ -136,3 +136,11 @@ def check_consistence(X_train,X_test,feature_col):
                           num_boost_round=100,
                           verbose_eval=50)
     return roc_auc_score(y_test, xgb_model.predict( xgb.DMatrix(X_test[feature_col])))
+
+
+
+
+def submit(df, save_path, model_name):
+    from datetime import datetime
+    save_name = save_path + model_name + '_' + datetime.today().strftime('%Y-%m-%d') + '.csv'
+    df.to_csv(save_name, index=False, header=True)
