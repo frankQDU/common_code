@@ -4,7 +4,7 @@
 
 ## 排序评估
 
-- [docs/排序评估指标手册.md](docs/排序评估指标手册.md)
+- [docs/排序评估指标手册.md](docs/排序评估指标手册.md)（AUC / GAUC / NDCG / MAP / MRR 与对应损失）
 
 ## 数据分析
 
