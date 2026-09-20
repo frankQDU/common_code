@@ -4,10 +4,7 @@
 
 ## 排序评估
 
-- 手册（AUC / GAUC / NDCG / MAP / MRR 的公式推导、分组、加权、适用与失效）：[docs/排序评估指标手册.md](docs/排序评估指标手册.md)
-- 参考实现：`recsys/ranking_metrics.py`
-- 复现手册第 6 章数值例：`python recsys/ranking_metrics.py`
-- 单测：`python recsys/test_ranking_metrics.py`
+- [docs/排序评估指标手册.md](docs/排序评估指标手册.md)
 
 ## 数据分析
 
